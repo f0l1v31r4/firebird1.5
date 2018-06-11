@@ -2,12 +2,19 @@ version: '3.5'
 
 services:
   fb-server:
-    build: .
+    build: 
+      context: .
+      args:
+        - https_proxy
+        - http_proxy
     image: firebird:1.5.6-ss
     restart: always
     container_name: fbserver-1.5.6-ss
     environment: 
       - TZ="America/Fortaleza"
+        # vou precisar das configuracoes do proxy do syistema
+      - https_proxy
+      - http_proxy
     volumes: 
       - ./data:/data
       - ./backup:/backup
@@ -18,3 +25,4 @@ services:
 # https://hub.docker.com/r/mladenp87/firebird-1.5.6-ss/
 # https://hub.docker.com/r/growchie/firebird15/
 # time zone: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# https://dev.to/shriharshmishra/behind-the-corporate-proxy-2jd8
