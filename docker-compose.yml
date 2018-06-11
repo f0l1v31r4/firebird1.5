@@ -4,6 +4,7 @@ services:
   fb-server:
     build: .
     image: firebird:1.5.6-ss
+    restart: always
     container_name: fbserver-1.5.6-ss
     environment: 
       - TZ="America/Fortaleza"
