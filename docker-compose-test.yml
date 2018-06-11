@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  fb-server:
+    build: .
+    image: firebird:1.5.6-ss
+    container_name: fbserver-1.5.6-ss
+    restart: always
+    environment: 
+      - TZ="America/Fortaleza"
+    volumes: 
+      - ./data:/data
+      - ./backup:/backup
+    expose: 
+      - 3050
