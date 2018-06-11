@@ -11,14 +11,8 @@ services:
     volumes: 
       - ./data:/data
       - ./backup:/backup
-    expose: 
-      - 3050
-
-# vou criar uma rede transparente
-networks: 
-  backend:
-    name: firebird
-    
+    ports: 
+      - 3050:3050
 
 # fonte:
 # https://hub.docker.com/r/mladenp87/firebird-1.5.6-ss/
