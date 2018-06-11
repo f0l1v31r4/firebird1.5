@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  fb-server:
+    build: .
+    image: firebird:1.5.6-ss
+    container_name: fbserver-1.5.6-ss
+    environment: 
+      - TZ="America/Fortaleza"
+    volumes: 
+      - ./data:/data
+      - ./backup:/backup
+    expose: 
+      - 3050
+
+# vou criar uma rede transparente
+networks: 
+  backend:
+    name: firebird
+    
+
+# fonte:
+# https://hub.docker.com/r/mladenp87/firebird-1.5.6-ss/
+# https://hub.docker.com/r/growchie/firebird15/
+# time zone: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
